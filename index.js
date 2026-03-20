@@ -2,7 +2,13 @@ require ('dotenv').config()
 const PORT = 4242
 const express = require('express')
 const app = express()
+const router = require("./router/organisations")
+const staffRouter = require("./router/staffTables")
+const multer = require('multer')
+
 app.use(express.json())
+app.use(router)
+app.use(staffRouter)
 
 app.use('/', (req, res) => {
     res.send('Hello world')
