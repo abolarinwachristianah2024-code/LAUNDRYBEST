@@ -38,3 +38,21 @@ exports.createEquipment = async(req, res) => {
         })
     }
 }
+
+exports.getEquipmentByOrgId = async(req, res) => {
+    try {
+        const { orgId } = req.params
+        const equip = await equipment.findAll({
+            where: { orgId }
+        })
+        res.status(200).json({
+            message: "Equipment fetched successfully",
+            data: equip
+        })
+    } catch (error) {
+        console.log(error.message)
+        res.status(500).json({
+            message: "Something went wrong"
+        })
+    }
+}
