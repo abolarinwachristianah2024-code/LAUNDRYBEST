@@ -11,7 +11,7 @@ exports.createOrg = async(req, res) => {
         const extractSecureurl = uploadResponse.secure_url;
 
         const filePath = req.file.path;
-        await fs.promises.unlink(filePath)
+        await fs.promises.unlinkSync(filePath)
 
         const { name, address, email, phoneNo} = req.body
 
