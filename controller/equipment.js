@@ -17,12 +17,13 @@ exports.createEquipment = async(req, res) => {
         const filePath = req.file.path;
         await fs.promises.unlink(filePath)
 
-        const { name, price, expiringDate } = req.body
+        const { name, price, expiringDate, status} = req.body
         const { orgId } = req.params
         const newEquipment = await equipment.create({
             name,
             price,
             expiringDate,
+            status,
             orgId,
             images: extractSecureurl
         })
