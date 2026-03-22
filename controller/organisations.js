@@ -9,18 +9,16 @@ exports.createOrg = async(req, res) => {
         const uploadResponse = await cloudinary.uploader.upload(file.path);
 
         const extractSecureurl = uploadResponse.secure_url;
-        // console.log(uploadResponse);
-        console.log("file", req.file);
 
         const filePath = req.file.path;
         await fs.promises.unlink(filePath)
 
-        const { name, address, emails, phoneNo} = req.body
+        const { name, address, email, phoneNo} = req.body
 
         const newOrg = await organizations.create({
             name,
             address,
-            emails,
+            email,
             phoneNo,
             logo: extractSecureurl
         })

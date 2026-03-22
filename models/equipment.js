@@ -14,10 +14,17 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   equipment.init({
+    id: {
+      allowNull: false,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4, 
+      primaryKey: true
+    },
     name: DataTypes.STRING,
     price: DataTypes.INTEGER,
     expiringDate: DataTypes.DATE,
-    images: DataTypes.TEXT
+    images: DataTypes.TEXT,
+    orgId: DataTypes.UUID
   }, {
     sequelize,
     modelName: 'equipment',

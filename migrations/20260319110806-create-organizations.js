@@ -22,7 +22,7 @@ module.exports = {
         allowNull: false
       },
       phoneNo: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
       },
       logo: {
