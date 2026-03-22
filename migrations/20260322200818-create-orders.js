@@ -22,7 +22,8 @@ module.exports = {
         type: Sequelize.ENUM('pending', 'completed', 'cancelled')
       },
       staff_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID,
+        allowNull: false
       },
       OrgId: {
         type: Sequelize.UUID,
