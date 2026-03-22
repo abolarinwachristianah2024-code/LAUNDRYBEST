@@ -24,6 +24,11 @@ module.exports = {
         type: DataTypes.DATE,
         allowNull: false
       },
+      status: {
+        type: DataTypes.ENUM('active', 'inactive'),
+        defaultValue: 'active',
+        allowNull: false
+      },
       images: {
         type: Sequelize.TEXT,
         allowNull: false

@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     price: DataTypes.INTEGER,
     expiringDate: DataTypes.DATE,
+    status: DataTypes.ENUM('active', 'inactive'),
     images: DataTypes.TEXT,
     orgId: DataTypes.UUID
   }, {
